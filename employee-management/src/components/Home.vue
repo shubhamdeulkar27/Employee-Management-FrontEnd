@@ -1,14 +1,14 @@
 <template>
   <div id="home-main">
-    <Header />
+    <Dashboard />
   </div>
 </template>
 <script>
-import Header from "./Header.vue";
+import Dashboard from "./Dashboard.vue";
 export default {
   name: "Home",
   components: {
-    Header
+    Dashboard
   }
 };
 </script>
