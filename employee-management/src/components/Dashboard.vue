@@ -16,11 +16,15 @@
         <md-list>
           <md-list-item>
             <md-icon>home</md-icon>
-            <span class="md-list-item-text">Home</span>
+            <span class="md-list-item-text"
+              ><a href="/home" id="default-link">Home</a></span
+            >
           </md-list-item>
           <md-list-item>
             <md-icon>how_to_reg</md-icon>
-            <span class="md-list-item-text">Sign Up</span>
+            <span class="md-list-item-text"
+              ><a href="/register" id="default-link">Sign Up</a></span
+            >
           </md-list-item>
 
           <md-list-item>
@@ -40,15 +44,7 @@
         </md-list>
       </md-app-drawer>
 
-      <md-app-content>
-        <h2 id="md-app-content-title">Employee Management</h2>
-        <p id="md-app-content-text">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error
-          quibusdam, non molestias et! Earum magnam, similique, quo recusandae
-          placeat dicta asperiores modi sint ea repudiandae maxime? Quae non
-          explicabo, neque.
-        </p>
-      </md-app-content>
+      <md-app-content> <router-view> </router-view></md-app-content>
     </md-app>
   </div>
 </template>
@@ -56,38 +52,32 @@
 <style lang="scss" scoped>
 .md-app-content {
   height: 90vh;
-  background: url("../assets/employees.jpg");
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  color: white;
 }
-#md-app-content-title {
-  margin-top: 10vh;
-  font-size: 40px;
-}
+
 .md-app {
   border: 1px solid rgba(#000, 0.12);
 }
-#md-app-content-text {
-  width: 50vw;
-  position: relative;
-  top: 07vh;
-  left: 25vw;
-}
+
 // Demo purposes only
 .md-drawer {
   width: 230px;
   max-width: calc(100vw - 125px);
 }
+#default-link {
+  color: black;
+  text-decoration: none;
+}
 </style>
 
 <script>
+import Home from "./Home.vue";
 export default {
   name: "Dashboard",
   data: () => ({
     menuVisible: false
-  })
+  }),
+  components: {
+    Home
+  }
 };
 </script>
