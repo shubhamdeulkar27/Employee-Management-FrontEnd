@@ -41,7 +41,8 @@
       </md-app-drawer>
 
       <md-app-content>
-        <p>
+        <h2 id="md-app-content-title">Employee Management</h2>
+        <p id="md-app-content-text">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error
           quibusdam, non molestias et! Earum magnam, similique, quo recusandae
           placeat dicta asperiores modi sint ea repudiandae maxime? Quae non
@@ -55,11 +56,26 @@
 <style lang="scss" scoped>
 .md-app-content {
   height: 90vh;
+  background: url("../assets/employees.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
+#md-app-content-title {
+  margin-top: 10vh;
+  font-size: 40px;
 }
 .md-app {
   border: 1px solid rgba(#000, 0.12);
 }
-
+#md-app-content-text {
+  width: 50vw;
+  position: relative;
+  top: 07vh;
+  left: 25vw;
+}
 // Demo purposes only
 .md-drawer {
   width: 230px;
