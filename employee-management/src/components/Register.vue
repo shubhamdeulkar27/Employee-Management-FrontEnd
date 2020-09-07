@@ -8,6 +8,7 @@
             <md-field>
               <label>Role</label>
               <md-input v-model="Role"></md-input>
+              <span class="md-helper-text">You can use letters only.</span>
             </md-field>
             <md-field>
               <label>Email</label>
@@ -16,21 +17,25 @@
             <md-field>
               <label>Username</label>
               <md-input v-model="UserName"></md-input>
+              <span class="md-helper-text">You can use letters,numbers,period and @.</span>
             </md-field>
             <md-field>
               <label>Password</label>
               <md-input v-model="Password" type="password"></md-input>
+              <span
+                class="md-helper-text"
+              >Should Be Alphanumeric and At least One special character.</span>
             </md-field>
 
             <md-card-actions>
-              <md-button class="md-dense md-primary">Log in Instead</md-button>
-              <md-button type="submit" class="md-raised md-primary" :disabled="sending">Create user</md-button>
+              <md-button class="md-dense md-primary" href="/">Log in Instead</md-button>
+              <md-button type="submit" class="md-raised md-primary">Create user</md-button>
             </md-card-actions>
           </form>
         </div>
       </div>
       <div class="content-box-2">
-        <img src="../assets/desk.jpg" alt="Desk" id="img" />
+        <img src="../assets/account.svg" alt="Account" id="img" />
       </div>
     </div>
   </div>
@@ -71,7 +76,7 @@ export default {
 }
 .content-box-1 {
   padding: 5vh;
-  padding-top: 12vh;
+  padding-top: 10vh;
   width: 30vw;
 }
 .content-box-2 {

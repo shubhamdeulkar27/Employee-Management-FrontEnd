@@ -9,27 +9,21 @@
       </md-app-toolbar>
 
       <md-app-drawer :md-active.sync="menuVisible">
-        <md-toolbar class="md-transparent" md-elevation="0"
-          >Navigation</md-toolbar
-        >
+        <md-toolbar class="md-transparent" md-elevation="0">Navigation</md-toolbar>
 
         <md-list>
-          <md-list-item>
+          <md-list-item href="/home">
             <md-icon>home</md-icon>
-            <span class="md-list-item-text"
-              ><a href="/home" id="default-link">Home</a></span
-            >
+            <span class="md-list-item-text">Home</span>
           </md-list-item>
-          <md-list-item>
+          <md-list-item href="/register">
             <md-icon>how_to_reg</md-icon>
-            <span class="md-list-item-text"
-              ><a href="/register" id="default-link">Sign Up</a></span
-            >
+            <span class="md-list-item-text">Sign Up</span>
           </md-list-item>
 
-          <md-list-item>
+          <md-list-item href="/">
             <md-icon>login</md-icon>
-            <span class="md-list-item-text">Login</span>
+            <span class="md-list-item-text">Log In</span>
           </md-list-item>
 
           <md-list-item>
@@ -44,7 +38,9 @@
         </md-list>
       </md-app-drawer>
 
-      <md-app-content> <router-view> </router-view></md-app-content>
+      <md-app-content>
+        <router-view></router-view>
+      </md-app-content>
     </md-app>
   </div>
 </template>
@@ -74,10 +70,10 @@ import Home from "./Home.vue";
 export default {
   name: "Dashboard",
   data: () => ({
-    menuVisible: false
+    menuVisible: false,
   }),
   components: {
-    Home
-  }
+    Home,
+  },
 };
 </script>
