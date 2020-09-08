@@ -31,6 +31,24 @@
         </form>
       </div>
     </div>
+    <md-snackbar
+      :md-position="position"
+      :md-active.sync="invalidCredentials"
+      md-persistent
+    >
+      <span>Invalid Credentials!</span>
+      <md-button class="md-primary" @click="invalidCredentials = false"
+        >Ok</md-button
+      >
+    </md-snackbar>
+    <md-snackbar
+      :md-position="position"
+      :md-active.sync="isLogin"
+      md-persistent
+    >
+      <span>Login Successful!</span>
+      <md-button class="md-primary" @click="isLogin = false">Ok</md-button>
+    </md-snackbar>
   </div>
 </template>
 <script>
@@ -44,6 +62,8 @@ export default {
         Password: null,
       },
       isLogin: false,
+      invalidCredentials: false,
+      position: "center",
     };
   },
   methods: {
@@ -52,10 +72,17 @@ export default {
         UserName: this.form.UserName,
         Password: this.form.Password,
       };
-      service.login(user).then((result) => {
-        this.isLogin = true;
-        console.log(this.isLogin);
-      });
+      service
+        .login(user)
+        .then((result) => {
+          this.isLogin = true;
+          console.log(this.isLogin);
+        })
+        .catch((error) => {
+          this.invalidCredentials = true;
+          this.form.UserName = null;
+          this.form.Password = null;
+        });
     },
   },
 };
