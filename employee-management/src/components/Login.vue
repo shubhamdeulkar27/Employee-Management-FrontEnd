@@ -44,7 +44,7 @@ export default {
   border-radius: 5px;
   position: relative;
   left: 25vw;
-  top: 5vh;
+  top: 10vh;
 }
 #container-title {
   font-size: 25px;

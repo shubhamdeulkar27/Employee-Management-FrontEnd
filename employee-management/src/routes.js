@@ -4,13 +4,11 @@ import Dashboard from "./components/Dashboard.vue";
 import Login from "./components/Login.vue";
 
 export default [
+  { path: "/register", component: Register },
+  { path: "/", component: Login },
   {
-    path: "/",
+    path: "/dashboard",
     component: Dashboard,
-    children: [
-      { path: "home", component: Home },
-      { path: "register", component: Register },
-      { path: "", component: Login }
-    ]
-  }
+    children: [{ path: "home", component: Home }],
+  },
 ];

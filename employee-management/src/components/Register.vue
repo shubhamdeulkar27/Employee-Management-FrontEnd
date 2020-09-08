@@ -22,9 +22,10 @@
             <md-field>
               <label>Password</label>
               <md-input v-model="Password" type="password"></md-input>
-              <span
-                class="md-helper-text"
-              >Should Be Alphanumeric and At least One special character.</span>
+              <span class="md-helper-text">
+                Should Be Alphanumeric and At least One special
+                character.
+              </span>
             </md-field>
 
             <md-card-actions>
@@ -59,7 +60,7 @@ export default {
   width: 60vw;
   height: 80vh;
   position: relative;
-  top: 5vh;
+  top: 10vh;
   left: 20vw;
   border: 1px solid rgba($color: gray, $alpha: 0.4);
   border-radius: 5px;
@@ -97,6 +98,8 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  position: relative;
+  top: 5vh;
 }
 .md-button {
   font-size: 11px;
