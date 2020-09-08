@@ -4,21 +4,29 @@
       <md-icon>login</md-icon>
       <div id="container-title">Log in</div>
       <div id="form-container">
-        <form action method="post">
+        <form>
           <md-field>
             <label>Username</label>
-            <md-input v-model="UserName"></md-input>
-            <span class="md-helper-text">You can use letters,numbers,period and @.</span>
+            <md-input v-model="form.UserName"></md-input>
+            <span class="md-helper-text"
+              >You can use letters,numbers,period and @.</span
+            >
           </md-field>
           <md-field>
             <label>Password</label>
-            <md-input v-model="Password" type="password"></md-input>
-            <span class="md-helper-text">Should Be Alphanumeric and At least One special character.</span>
+            <md-input v-model="form.Password" type="password"></md-input>
+            <span class="md-helper-text"
+              >Should Be Alphanumeric and At least One special character.</span
+            >
           </md-field>
 
           <md-card-actions>
-            <md-button class="md-dense md-primary" href="/register">Create Account</md-button>
-            <md-button type="submit" class="md-raised md-primary">Log In</md-button>
+            <md-button class="md-dense md-primary" href="/register"
+              >Create Account</md-button
+            >
+            <md-button @click="login" class="md-raised md-primary"
+              >Log In</md-button
+            >
           </md-card-actions>
         </form>
       </div>
@@ -26,13 +34,29 @@
   </div>
 </template>
 <script>
+import service from "../services/axios-service.js";
 export default {
   name: "Login",
   data() {
     return {
-      UserName: "",
-      Password: "",
+      form: {
+        UserName: null,
+        Password: null,
+      },
+      isLogin: false,
     };
+  },
+  methods: {
+    login() {
+      let user = {
+        UserName: this.form.UserName,
+        Password: this.form.Password,
+      };
+      service.login(user).then((result) => {
+        this.isLogin = true;
+        console.log(this.isLogin);
+      });
+    },
   },
 };
 </script>
