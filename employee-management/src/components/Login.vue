@@ -17,10 +17,16 @@
               >You can use letters,numbers,period and @.</span
             >
             <span class="md-error" v-if="!$v.form.UserName.required"
-              >The first name is required</span
+              >Username is required</span
             >
             <span class="md-error" v-else-if="!$v.form.UserName.minlength"
-              >Invalid first name</span
+              >Username should have at least six characters</span
+            >
+            <span
+              class="md-error"
+              v-else-if="!$v.form.UserName.userNameRegex(this.UserName)"
+            >
+              Username Is Invalid (Eg. asdfg@123)</span
             >
           </md-field>
           <md-field :class="getValidationClass('Password')">
@@ -103,6 +109,11 @@ export default {
       UserName: {
         required,
         minLength: minLength(6),
+        userNameRegex(userName) {
+          const regex = /^[a-zA-Z0-9]+([.@]?[a-zA-Z0-9]+)*$/;
+          return regex.test(userName);
+          console.log("regex called");
+        },
       },
       Password: {
         required,
