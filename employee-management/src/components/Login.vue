@@ -148,6 +148,7 @@ export default {
         .then((result) => {
           if (result.data.success) {
             this.isLogin = true;
+            window.location.href = "/dashboard";
           }
           console.log(result.data.success);
         })

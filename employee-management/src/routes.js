@@ -9,6 +9,6 @@ export default [
   {
     path: "/dashboard",
     component: Dashboard,
-    children: [{ path: "home", component: Home }],
+    children: [{ path: "/", component: Home }],
   },
 ];
