@@ -83,10 +83,24 @@
         >Ok</md-button
       >
     </md-snackbar>
+    <md-snackbar
+      :md-position="position"
+      :md-active.sync="isError"
+      md-persistent
+    >
+      <span> Credential Error!</span>
+      <md-button
+        type="submit"
+        class="md-primary"
+        :disabled="sending"
+        @click="clearForm"
+        >Ok</md-button
+      >
+    </md-snackbar>
   </div>
 </template>
 <script>
-import service from "../services/axios-service.js";
+import service from "../services/user-service.js";
 import { validationMixin } from "vuelidate";
 import { required, minLength, maxLength } from "vuelidate/lib/validators";
 export default {
@@ -100,6 +114,7 @@ export default {
       },
       isLogin: false,
       invalidCredentials: false,
+      isError: false,
       position: "center",
       sending: false,
     };
@@ -131,8 +146,10 @@ export default {
       service
         .login(user)
         .then((result) => {
-          this.isLogin = true;
-          console.log(this.isLogin);
+          if (result.data.success) {
+            this.isLogin = true;
+          }
+          console.log(result.data.success);
         })
         .then(() => {
           this.sending = false;
@@ -141,6 +158,10 @@ export default {
         .catch((error) => {
           if (error.response.status == "404") {
             this.invalidCredentials = true;
+            this.sending = false;
+          } else if (error.response.status == "400") {
+            this.isError = true;
+            this.sending = false;
           }
         });
     },

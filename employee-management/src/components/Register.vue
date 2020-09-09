@@ -17,20 +17,25 @@
             <md-field>
               <label>Username</label>
               <md-input v-model="UserName"></md-input>
-              <span class="md-helper-text">You can use letters,numbers,period and @.</span>
+              <span class="md-helper-text"
+                >You can use letters,numbers,period and @.</span
+              >
             </md-field>
             <md-field>
               <label>Password</label>
               <md-input v-model="Password" type="password"></md-input>
               <span class="md-helper-text">
-                Should Be Alphanumeric and At least One special
-                character.
+                Should Be Alphanumeric and At least One special character.
               </span>
             </md-field>
 
             <md-card-actions>
-              <md-button class="md-dense md-primary" href="/">Log in Instead</md-button>
-              <md-button type="submit" class="md-raised md-primary">Create user</md-button>
+              <md-button class="md-dense md-primary" href="/"
+                >Log in Instead</md-button
+              >
+              <md-button type="submit" class="md-raised md-primary"
+                >Create user</md-button
+              >
             </md-card-actions>
           </form>
         </div>
@@ -43,14 +48,16 @@
 </template>
 
 <script>
+import service from "../services/user-service.js";
+
 export default {
   name: "Register",
   data() {
     return {
-      Role: "",
-      EmailId: "",
-      UserName: "",
-      Password: "",
+      Role: null,
+      EmailId: null,
+      UserName: null,
+      Password: null,
     };
   },
 };
