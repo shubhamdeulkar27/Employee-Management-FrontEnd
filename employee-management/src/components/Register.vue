@@ -98,6 +98,23 @@
         <img src="../assets/account.svg" alt="Account" id="img" />
       </div>
     </div>
+    <md-snackbar
+      :md-position="position"
+      :md-active.sync="isRegistered"
+      md-persistent
+    >
+      <span>Registration Successful !</span>
+      <md-button class="md-primary" @click="isRegistered = false">Ok</md-button>
+    </md-snackbar>
+
+    <md-snackbar
+      :md-position="position"
+      :md-active.sync="userExists"
+      md-persistent
+    >
+      <span>User Already Exists !</span>
+      <md-button class="md-primary" @click="userExists = false">Ok</md-button>
+    </md-snackbar>
   </div>
 </template>
 
