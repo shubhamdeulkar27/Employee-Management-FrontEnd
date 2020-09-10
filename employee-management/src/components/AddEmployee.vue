@@ -279,11 +279,14 @@ export default {
   margin-left: 5vw;
 }
 #form-container {
-  margin-top: 5vh;
+  margin-top: 1vh;
   margin-left: 5vw;
   width: 40vw;
 }
 .md-button {
   margin-left: 15vw;
+}
+.md-field {
+  margin-bottom: 15px;
 }
 </style>

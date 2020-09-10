@@ -15,7 +15,7 @@ export default {
   addEmployee(Employee) {
     return axios.post("", Employee);
   },
-  editEmployee(Employee) {
+  updateEmployee(Employee) {
     return axios.put("/" + Employee.Id, Employee);
   },
 };
