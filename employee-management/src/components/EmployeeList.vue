@@ -90,8 +90,8 @@ export default {
   padding: 5vh;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  column-gap: 1vh;
-  row-gap: 1vw;
+  column-gap: 1vw;
+  row-gap: 5vh;
 }
 #empty-list {
   position: relative;

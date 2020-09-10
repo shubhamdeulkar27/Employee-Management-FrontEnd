@@ -33,8 +33,12 @@
           </md-list-item>
 
           <md-list-item>
-            <md-icon>subject</md-icon>
-            <span class="md-list-item-text">About Us</span>
+            <md-icon>add</md-icon>
+            <span class="md-list-item-text"
+              ><router-link to="/add" id="default-link"
+                >Add Employee</router-link
+              ></span
+            >
           </md-list-item>
 
           <md-list-item>
