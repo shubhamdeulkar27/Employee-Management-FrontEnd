@@ -25,13 +25,29 @@
         </md-card-content>
 
         <md-card-actions>
-          <md-button class="md-primary">Edit</md-button>
+          <md-button class="md-primary" @click="showDialog = true"
+            >Edit</md-button
+          >
           <md-button class="md-accent" @click="deleteEmployee(employee.id)"
             >Delete</md-button
           >
         </md-card-actions>
       </md-ripple>
     </md-card>
+    <div>
+      <md-dialog :md-active.sync="showDialog">
+        <md-dialog-title>Edit Employee Details</md-dialog-title>
+
+        <md-dialog-actions>
+          <md-button class="md-primary" @click="showDialog = false"
+            >Close</md-button
+          >
+          <md-button class="md-primary" @click="showDialog = false"
+            >Save</md-button
+          >
+        </md-dialog-actions>
+      </md-dialog>
+    </div>
   </div>
 </template>
 <script>
@@ -43,6 +59,7 @@ export default {
       isListEmpty: true,
       employees: [],
       employee: null,
+      showDialog: false,
     };
   },
   beforeMount() {
