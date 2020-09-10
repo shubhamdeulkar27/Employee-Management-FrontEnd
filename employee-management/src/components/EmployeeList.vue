@@ -25,8 +25,10 @@
         </md-card-content>
 
         <md-card-actions>
-          <md-button>Action</md-button>
-          <md-button>Action</md-button>
+          <md-button class="md-primary">Edit</md-button>
+          <md-button class="md-accent" @click="deleteEmployee(employee.id)"
+            >Delete</md-button
+          >
         </md-card-actions>
       </md-ripple>
     </md-card>
@@ -40,20 +42,43 @@ export default {
     return {
       isListEmpty: true,
       employees: [],
+      employee: null,
     };
   },
   beforeMount() {
     this.fetchEmployees();
+    this.fetchEmployee(8);
   },
   methods: {
     fetchEmployees() {
-      service.fetchEmployees().then((result) => {
-        this.employees = result.data.data;
-        console.log(this.employees);
-        if (this.employees.length > 0) {
-          this.isListEmpty = false;
-        }
+      service
+        .fetchEmployees()
+        .then((result) => {
+          this.employees = result.data.data;
+          console.log(this.employees);
+          if (this.employees.length > 0) {
+            this.isListEmpty = false;
+          }
+        })
+        .catch((error) => {
+          alert("Error Occured While Fetching Employees");
+        });
+    },
+    fetchEmployee(id) {
+      service.fetchEmployee(id).then((result) => {
+        this.employee = result.data.data;
+        console.log(this.employee);
       });
+    },
+    deleteEmployee(id) {
+      service
+        .deleteEmployee(id)
+        .then(() => {
+          this.fetchEmployees();
+        })
+        .catch((error) => {
+          alert("Error Occured While Deleting Employee");
+        });
     },
   },
 };
@@ -63,6 +88,10 @@ export default {
 #list-container {
   position: relative;
   padding: 5vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 1vh;
+  row-gap: 1vw;
 }
 #empty-list {
   position: relative;
