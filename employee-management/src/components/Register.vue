@@ -265,6 +265,7 @@ export default {
   justify-content: space-between;
   position: relative;
   top: 5vh;
+  width: 40vw;
 }
 .md-button {
   font-size: 11px;

@@ -2,13 +2,18 @@ import Register from "./components/Register.vue";
 import Home from "./components/Home.vue";
 import Dashboard from "./components/Dashboard.vue";
 import Login from "./components/Login.vue";
+import EmployeeList from "./components/EmployeeList.vue";
 
 export default [
-  { path: "/register", component: Register },
   { path: "/", component: Login },
+  { path: "/register", component: Register },
   {
     path: "/dashboard",
     component: Dashboard,
-    children: [{ path: "/", component: Home }],
+    children: [
+      { path: "", component: Home },
+      { path: "/home", component: Home },
+      { path: "/list", component: EmployeeList },
+    ],
   },
 ];

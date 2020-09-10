@@ -117,6 +117,7 @@ export default {
       isError: false,
       position: "center",
       sending: false,
+      token: null,
     };
   },
   validations: {
@@ -148,6 +149,8 @@ export default {
         .then((result) => {
           if (result.data.success) {
             this.isLogin = true;
+            this.token = result.data.token;
+            localStorage.setItem("token", this.token);
             window.location.href = "/dashboard";
           }
           console.log(result.data.success);
@@ -219,6 +222,7 @@ export default {
   justify-content: space-between;
   position: relative;
   top: 10vh;
+  width: 50vw;
 }
 .md-icon {
   position: relative;
