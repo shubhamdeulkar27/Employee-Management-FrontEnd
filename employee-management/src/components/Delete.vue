@@ -1,27 +1,27 @@
 <template>
-  <md-button class="md-accent" @click="deleteEmployee(employee.id)">Delete</md-button>
+  <md-button class="md-accent" @click="deleteEmployee(employeeId)">Delete</md-button>
 </template>
 <script>
 import service from "../services/employee-service.js";
 export default {
   name: "Delete",
-  data(){
-      return{
-          isDeleted:false
-      }
-  }
-  methods:{
+  props: {
+    employeeId: Number,
+  },
+  methods: {
     deleteEmployee(id) {
       service
         .deleteEmployee(id)
-        .then(() => {
-          this.fetchEmployees();
+        .then((result) => {
+          if (result.data.success) {
+            this.$emit("fetchEmployees");
+          }
         })
         .catch((error) => {
-          alert("Error Occured While Deleting Employee");
+          alert("Error Occured While Deleting Employee", this.employeeId);
         });
     },
-  }
+  },
 };
 </script>
 

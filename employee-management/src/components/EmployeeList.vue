@@ -17,7 +17,7 @@
 
         <md-card-actions>
           <md-button class="md-primary" @click="fetchEmployee(employee.id)">Edit</md-button>
-          <md-button class="md-accent" @click="deleteEmployee(employee.id)">Delete</md-button>
+          <Delete v-bind:employeeId="employee.id" @fetchEmployees="fetchEmployees()" />
         </md-card-actions>
       </md-ripple>
     </md-card>
@@ -67,6 +67,7 @@
   </div>
 </template>
 <script>
+import Delete from "./Delete.vue";
 import service from "../services/employee-service.js";
 import { validationMixin } from "vuelidate";
 import { required, minLength, maxLength } from "vuelidate/lib/validators";
@@ -74,6 +75,9 @@ import { required, minLength, maxLength } from "vuelidate/lib/validators";
 export default {
   name: "EmployeeList",
   mixins: [validationMixin],
+  components: {
+    Delete,
+  },
   data() {
     return {
       isListEmpty: true,
@@ -131,17 +135,7 @@ export default {
           this.form.Employment = this.employee["employment"];
         });
     },
-    deleteEmployee(id) {
-      service
-        .deleteEmployee(id)
-        .then((result) => {
-          console.log(result);
-          this.fetchEmployees();
-        })
-        .catch((error) => {
-          alert("Error Occured While Deleting Employee");
-        });
-    },
+
     updateEmployee() {
       this.showDialog = false;
       let employee = {
