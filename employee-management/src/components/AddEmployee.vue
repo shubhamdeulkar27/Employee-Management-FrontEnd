@@ -5,146 +5,89 @@
       <form novalidate class="md-layout" @submit.prevent="validateEmployee">
         <md-field :class="getValidationClass('FirstName')">
           <label for="FirstName">Firstname</label>
-          <md-input
-            name="FirstName"
-            id="FirstName"
-            v-model="form.FirstName"
-            :disabled="sending"
-          ></md-input>
+          <md-input name="FirstName" id="FirstName" v-model="form.FirstName" :disabled="sending"></md-input>
           <span class="md-helper-text">You can use letters only.</span>
 
-          <span class="md-error" v-if="!$v.form.FirstName.required"
-            >Firstname is required</span
-          >
-          <span class="md-error" v-else-if="!$v.form.FirstName.minlength"
-            >Lastname should have at least three characters</span
-          >
+          <span class="md-error" v-if="!$v.form.FirstName.required">Firstname is required</span>
+          <span
+            class="md-error"
+            v-else-if="!$v.form.FirstName.minlength"
+          >Lastname should have at least three characters</span>
         </md-field>
 
         <md-field :class="getValidationClass('LastName')">
           <label for="LastName">Lastname</label>
-          <md-input
-            name="LastName"
-            id="LastName"
-            v-model="form.LastName"
-            :disabled="sending"
-          ></md-input>
+          <md-input name="LastName" id="LastName" v-model="form.LastName" :disabled="sending"></md-input>
           <span class="md-helper-text">You can use letters only.</span>
 
-          <span class="md-error" v-if="!$v.form.LastName.required"
-            >Lastname is required</span
-          >
-          <span class="md-error" v-else-if="!$v.form.LastName.minlength"
-            >Lastname should have at least three characters</span
-          >
+          <span class="md-error" v-if="!$v.form.LastName.required">Lastname is required</span>
+          <span
+            class="md-error"
+            v-else-if="!$v.form.LastName.minlength"
+          >Lastname should have at least three characters</span>
         </md-field>
 
         <md-field :class="getValidationClass('EmailId')">
           <label for="EmailId">Email</label>
-          <md-input
-            name="EmailId"
-            id="EmailId"
-            v-model="form.EmailId"
-            :disabled="sending"
-          ></md-input>
-          <span class="md-error" v-if="!$v.form.EmailId.required"
-            >Email is required</span
-          >
+          <md-input name="EmailId" id="EmailId" v-model="form.EmailId" :disabled="sending"></md-input>
+          <span class="md-error" v-if="!$v.form.EmailId.required">Email is required</span>
         </md-field>
 
         <md-field :class="getValidationClass('Mobile')">
           <label for="Mobile">Mobile</label>
-          <md-input
-            name="Mobile"
-            id="Mobile"
-            v-model="form.Mobile"
-            :disabled="sending"
-          ></md-input>
+          <md-input name="Mobile" id="Mobile" v-model="form.Mobile" :disabled="sending"></md-input>
           <span class="md-helper-text">You can use numbers only.</span>
 
-          <span class="md-error" v-if="!$v.form.Mobile.required"
-            >Mobile number is required</span
-          >
-          <span class="md-error" v-else-if="!$v.form.Mobile.minlength"
-            >Should have at least 10 digits</span
-          >
+          <span class="md-error" v-if="!$v.form.Mobile.required">Mobile number is required</span>
+          <span
+            class="md-error"
+            v-else-if="!$v.form.Mobile.minlength"
+          >Should have at least 10 digits</span>
         </md-field>
 
         <md-field :class="getValidationClass('Address')">
           <label for="Address">Address</label>
-          <md-input
-            name="Address"
-            id="Address"
-            v-model="form.Address"
-            :disabled="sending"
-          ></md-input>
+          <md-input name="Address" id="Address" v-model="form.Address" :disabled="sending"></md-input>
 
-          <span class="md-error" v-if="!$v.form.Address.required"
-            >Address is required</span
-          >
-          <span class="md-error" v-else-if="!$v.form.Address.minlength"
-            >Address should have at least ten characters</span
-          >
+          <span class="md-error" v-if="!$v.form.Address.required">Address is required</span>
+          <span
+            class="md-error"
+            v-else-if="!$v.form.Address.minlength"
+          >Address should have at least ten characters</span>
         </md-field>
 
         <md-field :class="getValidationClass('BirthDate')">
           <label for="BirthDate">Birthdate</label>
-          <md-input
-            name="BirthDate"
-            id="BirthDate"
-            v-model="form.BirthDate"
-            :disabled="sending"
-          ></md-input>
+          <md-input name="BirthDate" id="BirthDate" v-model="form.BirthDate" :disabled="sending"></md-input>
           <span class="md-helper-text">DD/MM/YYYY</span>
 
-          <span class="md-error" v-if="!$v.form.BirthDate.required"
-            >Birthdate is required</span
-          >
-          <span class="md-error" v-else-if="!$v.form.BirthDate.minlength"
-            >Invalid Birthdate</span
-          >
+          <span class="md-error" v-if="!$v.form.BirthDate.required">Birthdate is required</span>
+          <span class="md-error" v-else-if="!$v.form.BirthDate.minlength">Invalid Birthdate</span>
         </md-field>
         <md-field :class="getValidationClass('Employment')">
           <label for="Employment">Employment</label>
-          <md-input
-            name="Employment"
-            id="Employment"
-            v-model="form.Employment"
-            :disabled="sending"
-          ></md-input>
+          <md-input name="Employment" id="Employment" v-model="form.Employment" :disabled="sending"></md-input>
           <span class="md-helper-text">Full-Time/Part-Time</span>
 
-          <span class="md-error" v-if="!$v.form.Employment.required"
-            >Employment is required</span
-          >
+          <span class="md-error" v-if="!$v.form.Employment.required">Employment is required</span>
         </md-field>
 
-        <md-button
-          type="submit"
-          class="md-raised md-primary"
-          :disabled="sending"
-          >Add Employee</md-button
-        >
+        <md-button type="submit" class="md-raised md-primary" :disabled="sending">Add Employee</md-button>
       </form>
     </div>
     <md-snackbar
       :md-position="position"
       :md-active.sync="isAdded"
       md-persistent
+      :md-duration="duration"
     >
       <span>Employee Added!</span>
       <md-button class="md-primary" @click="isAdded = false">Ok</md-button>
     </md-snackbar>
 
-    <md-snackbar
-      :md-position="position"
-      :md-active.sync="employeeExists"
-      md-persistent
-    >
+    <md-snackbar :md-position="position" :md-active.sync="employeeExists" md-persistent>
       <span>User Already Exists !</span>
-      <md-button class="md-primary" @click="employeeExists = false"
-        >Ok</md-button
-      >
+      <md-button class="md-primary" @click="employeeExists = false">Ok</md-button>
     </md-snackbar>
   </div>
 </template>
@@ -174,6 +117,7 @@ export default {
       isAdded: false,
       employeeExists: false,
       isError: false,
+      duration: 2000,
     };
   },
   validations: {
@@ -223,6 +167,9 @@ export default {
         .then((result) => {
           if (result.data.success) {
             this.isAdded = true;
+            setTimeout(() => {
+              window.location.href = "/add";
+            }, 3000);
           }
         })
         .catch((error) => {
@@ -232,6 +179,7 @@ export default {
           } else if (error.response.status == "400") {
             this.isError = true;
             this.sending = false;
+            ``;
           }
         });
     },

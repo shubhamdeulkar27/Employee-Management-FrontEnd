@@ -7,27 +7,17 @@
         <form novalidate class="md-layout" @submit.prevent="validateUser">
           <md-field :class="getValidationClass('UserName')">
             <label for="UserName">Username</label>
-            <md-input
-              name="UserName"
-              id="UserName"
-              v-model="form.UserName"
-              :disabled="sending"
-            ></md-input>
-            <span class="md-helper-text"
-              >You can use letters,numbers,period and @.</span
-            >
-            <span class="md-error" v-if="!$v.form.UserName.required"
-              >Username is required</span
-            >
-            <span class="md-error" v-else-if="!$v.form.UserName.minlength"
-              >Username should have at least six characters</span
-            >
+            <md-input name="UserName" id="UserName" v-model="form.UserName" :disabled="sending"></md-input>
+            <span class="md-helper-text">You can use letters,numbers,period and @.</span>
+            <span class="md-error" v-if="!$v.form.UserName.required">Username is required</span>
+            <span
+              class="md-error"
+              v-else-if="!$v.form.UserName.minlength"
+            >Username should have at least six characters</span>
             <span
               class="md-error"
               v-else-if="!$v.form.UserName.userNameRegex(this.UserName)"
-            >
-              Username Is Invalid (Eg. asdfg@123)</span
-            >
+            >Username Is Invalid (Eg. asdfg@123)</span>
           </md-field>
           <md-field :class="getValidationClass('Password')">
             <label for="Password">Password</label>
@@ -38,64 +28,29 @@
               type="password"
               :disabled="sending"
             ></md-input>
-            <span class="md-helper-text"
-              >Should Be Alphanumeric and At least One special character.</span
-            >
-            <span class="md-error" v-if="!$v.form.Password.required"
-              >The first name is required</span
-            >
-            <span class="md-error" v-else-if="!$v.form.Password.minlength"
-              >Invalid first name</span
-            >
+            <span class="md-helper-text">Should Be Alphanumeric and At least One special character.</span>
+            <span class="md-error" v-if="!$v.form.Password.required">The Password is required</span>
+            <span class="md-error" v-else-if="!$v.form.Password.minlength">Invalid Password</span>
           </md-field>
 
           <md-card-actions>
-            <md-button class="md-dense md-primary" href="/register"
-              >Create Account</md-button
-            >
-            <md-button
-              type="submit"
-              class="md-raised md-primary"
-              :disabled="sending"
-              >Log In</md-button
-            >
+            <md-button class="md-dense md-primary" href="/register">Create Account</md-button>
+            <md-button type="submit" class="md-raised md-primary" :disabled="sending">Log In</md-button>
           </md-card-actions>
         </form>
       </div>
     </div>
-    <md-snackbar
-      :md-position="position"
-      :md-active.sync="invalidCredentials"
-      md-persistent
-    >
+    <md-snackbar :md-position="position" :md-active.sync="invalidCredentials" md-persistent>
       <span>Invalid Credentials!</span>
-      <md-button class="md-primary" @click="invalidCredentials = false"
-        >Ok</md-button
-      >
+      <md-button class="md-primary" @click="invalidCredentials = false">Ok</md-button>
     </md-snackbar>
-    <md-snackbar
-      :md-position="position"
-      :md-active.sync="isLogin"
-      md-persistent
-    >
+    <md-snackbar :md-position="position" :md-active.sync="isLogin" md-persistent>
       <span>Login Successful!</span>
-      <md-button type="submit" class="md-primary" :disabled="sending"
-        >Ok</md-button
-      >
+      <md-button type="submit" class="md-primary" :disabled="sending">Ok</md-button>
     </md-snackbar>
-    <md-snackbar
-      :md-position="position"
-      :md-active.sync="isError"
-      md-persistent
-    >
-      <span> Credential Error!</span>
-      <md-button
-        type="submit"
-        class="md-primary"
-        :disabled="sending"
-        @click="clearForm"
-        >Ok</md-button
-      >
+    <md-snackbar :md-position="position" :md-active.sync="isError" md-persistent>
+      <span>Credential Error!</span>
+      <md-button type="submit" class="md-primary" :disabled="sending" @click="clearForm">Ok</md-button>
     </md-snackbar>
   </div>
 </template>
@@ -127,8 +82,9 @@ export default {
         minLength: minLength(6),
         userNameRegex(userName) {
           const regex = /^[a-zA-Z0-9]+([.@]?[a-zA-Z0-9]+)*$/;
-          return regex.test(userName);
           console.log("regex called");
+          console.log(regex.test(userName));
+          return regex.test(userName);
         },
       },
       Password: {

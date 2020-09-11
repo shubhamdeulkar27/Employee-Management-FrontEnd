@@ -1,36 +1,23 @@
 <template>
   <div id="list-container">
-    <div id="empty-list" v-if="isListEmpty">
-      Employee Details Appear Here.
-    </div>
-    <md-card
-      md-with-hover
-      v-if="!isListEmpty"
-      v-for="employee in employees"
-      :key="employee.id"
-    >
+    <div id="empty-list" v-if="isListEmpty">Employee Details Appear Here.</div>
+    <md-card md-with-hover v-if="!isListEmpty" v-for="employee in employees" :key="employee.id">
       <md-ripple>
         <md-card-header>
-          <div class="md-title">
-            {{ employee.firstName + " " + employee.lastName }}
-          </div>
+          <div class="md-title">{{ employee.firstName + " " + employee.lastName }}</div>
         </md-card-header>
 
         <md-card-content>
           <div class="employee-data">Email: {{ employee.emailId }}</div>
           <div class="employee-data">Mobile: {{ employee.mobile }}</div>
           <div class="employee-data">Address: {{ employee.address }}</div>
-          <div class="employee-data">Birthdat: {{ employee.birthDate }}</div>
+          <div class="employee-data">Birthdate: {{ employee.birthDate }}</div>
           <div class="employee-data">Employment: {{ employee.employment }}</div>
         </md-card-content>
 
         <md-card-actions>
-          <md-button class="md-primary" @click="fetchEmployee(employee.id)"
-            >Edit</md-button
-          >
-          <md-button class="md-accent" @click="deleteEmployee(employee.id)"
-            >Delete</md-button
-          >
+          <md-button class="md-primary" @click="fetchEmployee(employee.id)">Edit</md-button>
+          <md-button class="md-accent" @click="deleteEmployee(employee.id)">Delete</md-button>
         </md-card-actions>
       </md-ripple>
     </md-card>
@@ -72,15 +59,8 @@
           </div>
         </md-content>
         <md-dialog-actions>
-          <md-button class="md-primary" @click="showDialog = false"
-            >Close</md-button
-          >
-          <md-button
-            type="submit"
-            class="md-raised md-primary"
-            @click="updateEmployee()"
-            >Save</md-button
-          >
+          <md-button class="md-primary" @click="showDialog = false">Close</md-button>
+          <md-button type="submit" class="md-raised md-primary" @click="updateEmployee()">Save</md-button>
         </md-dialog-actions>
       </md-dialog>
     </div>
@@ -154,7 +134,8 @@ export default {
     deleteEmployee(id) {
       service
         .deleteEmployee(id)
-        .then(() => {
+        .then((result) => {
+          console.log(result);
           this.fetchEmployees();
         })
         .catch((error) => {
@@ -208,6 +189,7 @@ export default {
   position: relative;
   top: 35vh;
   font-size: 40px;
+  width: 100vw;
 }
 .employee-data {
   text-align: left;
@@ -225,5 +207,9 @@ export default {
 }
 .md-dialog-actions {
   padding: 0px 18px 8px 17px;
+}
+.md-card-actions {
+  position: relative;
+  bottom: 1vh;
 }
 </style>

@@ -9,41 +9,21 @@
       </md-app-toolbar>
 
       <md-app-drawer :md-active.sync="menuVisible">
-        <md-toolbar class="md-transparent" md-elevation="0"
-          >Navigation</md-toolbar
-        >
+        <md-toolbar class="md-transparent" md-elevation="0">Navigation</md-toolbar>
 
         <md-list>
           <md-list-item>
-            <md-icon>home</md-icon>
-            <span class="md-list-item-text"
-              ><router-link to="/home" id="default-link"
-                >Home</router-link
-              ></span
-            >
-          </md-list-item>
-
-          <md-list-item>
             <md-icon>list</md-icon>
-            <span class="md-list-item-text"
-              ><router-link to="/list" id="default-link"
-                >Employee List</router-link
-              ></span
-            >
+            <span class="md-list-item-text">
+              <router-link to="/dashboard" id="default-link">Employee List</router-link>
+            </span>
           </md-list-item>
 
           <md-list-item>
             <md-icon>add</md-icon>
-            <span class="md-list-item-text"
-              ><router-link to="/add" id="default-link"
-                >Add Employee</router-link
-              ></span
-            >
-          </md-list-item>
-
-          <md-list-item>
-            <md-icon>code</md-icon>
-            <span class="md-list-item-text">Developer Team</span>
+            <span class="md-list-item-text">
+              <router-link to="/add" id="default-link">Add Employee</router-link>
+            </span>
           </md-list-item>
         </md-list>
       </md-app-drawer>
@@ -76,14 +56,10 @@
 </style>
 
 <script>
-import Home from "./Home.vue";
 export default {
   name: "Dashboard",
   data: () => ({
     menuVisible: false,
   }),
-  components: {
-    Home,
-  },
 };
 </script>
