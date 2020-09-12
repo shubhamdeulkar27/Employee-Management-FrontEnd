@@ -156,7 +156,7 @@ export default {
   border: 1px solid rgba($color: gray, $alpha: 0.4);
   border-radius: 5px;
   position: relative;
-  left: 25vw;
+  left: 30vw;
   top: 10vh;
 }
 #container-title {

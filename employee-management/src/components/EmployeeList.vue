@@ -7,7 +7,7 @@
           <div class="md-title">{{ employee.firstName + " " + employee.lastName }}</div>
         </md-card-header>
 
-        <md-card-content>
+        <md-card-content @click.native="callUpdate(employee)">
           <div class="employee-data">Email: {{ employee.emailId }}</div>
           <div class="employee-data">Mobile: {{ employee.mobile }}</div>
           <div class="employee-data">Address: {{ employee.address }}</div>
@@ -16,12 +16,20 @@
         </md-card-content>
 
         <md-card-actions>
-          <md-button class="md-primary" @click="fetchEmployee(employee.id)">Edit</md-button>
           <Delete v-bind:employeeId="employee.id" @fetchEmployees="fetchEmployees()" />
         </md-card-actions>
       </md-ripple>
     </md-card>
-    <div>
+
+    <md-dialog :md-active.sync="showDialog">
+      <md-dialog-title>Edit Employee Details</md-dialog-title>
+      <UpdateEmployee
+        v-bind:employee="employee"
+        @fetchEmployees="fetchEmployees()"
+        @closeUpdate="closeUpdate()"
+      />
+    </md-dialog>
+    <!-- <div>
       <md-dialog :md-active.sync="showDialog">
         <md-dialog-title>Edit Employee Details</md-dialog-title>
         <md-content>
@@ -63,20 +71,19 @@
           <md-button type="submit" class="md-raised md-primary" @click="updateEmployee()">Save</md-button>
         </md-dialog-actions>
       </md-dialog>
-    </div>
+    </div>-->
   </div>
 </template>
 <script>
 import Delete from "./Delete.vue";
+import UpdateEmployee from "./UpdateEmployee.vue";
 import service from "../services/employee-service.js";
-import { validationMixin } from "vuelidate";
-import { required, minLength, maxLength } from "vuelidate/lib/validators";
 
 export default {
   name: "EmployeeList",
-  mixins: [validationMixin],
   components: {
     Delete,
+    UpdateEmployee,
   },
   data() {
     return {
@@ -86,20 +93,10 @@ export default {
       showDialog: false,
       isUpdated: false,
       isError: false,
-      form: {
-        Id: 0,
-        FirstName: null,
-        LastName: null,
-        EmailId: null,
-        Mobile: null,
-        Address: null,
-        BirthDate: null,
-        Employment: null,
-      },
     };
   },
 
-  beforeMount() {
+  created() {
     this.fetchEmployees();
   },
   methods: {
@@ -116,6 +113,14 @@ export default {
         .catch((error) => {
           alert("Error Occured While Fetching Employees");
         });
+    },
+    callUpdate(employee) {
+      this.employee = employee;
+      this.showDialog = true;
+      console.log("Update Called");
+    },
+    closeUpdate() {
+      this.showDialog = false;
     },
     fetchEmployee(id) {
       this.showDialog = true;
@@ -205,5 +210,8 @@ export default {
 .md-card-actions {
   position: relative;
   bottom: 1vh;
+}
+.md-overlay {
+  background: rgba(0, 0, 0, 0.3);
 }
 </style>
