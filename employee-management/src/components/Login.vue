@@ -184,4 +184,66 @@ export default {
   position: relative;
   top: 10vh;
 }
+
+//Moto G4
+@media (min-width: 320px) and (max-width: 360px) {
+  #container {
+    width: 90vw;
+    left: 5vw;
+  }
+  #container-title {
+    font-size: 30px;
+    line-height: 30px;
+    width: 100%;
+    position: relative;
+    top: 15vh;
+  }
+  .md-icon {
+    font-size: 35px !important;
+  }
+  #form-container {
+    width: 80vw;
+    position: relative;
+
+    top: 20vh;
+  }
+  .md-card-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+    top: 10vh;
+    width: 90vw;
+  }
+}
+//Media query For Moto G4 Horizontal.
+@media (min-width: 570px) and (max-width: 640px) {
+  #container {
+    width: 60vw;
+    left: 20vw;
+  }
+  #container-title {
+    font-size: 20px;
+    line-height: 20px;
+    width: 100%;
+    position: relative;
+    top: 5vh;
+  }
+  .md-icon {
+    display: none;
+  }
+  #form-container {
+    width: 50vw;
+    position: relative;
+    top: 1vh;
+  }
+  .md-card-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+    top: 13vh;
+    width: 70vw;
+  }
+}
 </style>

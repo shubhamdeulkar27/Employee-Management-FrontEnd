@@ -189,7 +189,6 @@ export default {
   left: 20vw;
   border: 1px solid rgba($color: gray, $alpha: 0.4);
   border-radius: 5px;
-
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -229,5 +228,86 @@ export default {
 }
 .md-button {
   font-size: 11px;
+}
+
+//Moto G4
+@media (min-width: 320px) and (max-width: 360px) {
+  #register-content {
+    width: 80vw;
+    height: 80vh;
+    position: relative;
+    top: 10vh;
+    left: 10vw;
+    border: 1px solid rgba($color: gray, $alpha: 0.4);
+    border-radius: 5px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .content-box-1 {
+    width: 80vw;
+    padding-top: 7vh;
+  }
+  .content-box-2 {
+    display: none;
+  }
+  #content-title {
+    font-size: 20px;
+    line-height: 20px;
+    text-align: center;
+    width: 100%;
+  }
+  .md-card-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+    top: 7vh;
+    width: 80vw;
+  }
+}
+
+//Moto G4 Horizontal
+@media (min-width: 570px) and (max-width: 640px) {
+  #register-content {
+    width: 90vw;
+    height: 90vh;
+    position: relative;
+    top: 5vh;
+    left: 5vw;
+    border: 1px solid rgba($color: gray, $alpha: 0.4);
+    border-radius: 5px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .content-box-1 {
+    width: 90vw;
+    padding-top: 3vh;
+  }
+  .content-box-2 {
+    display: none;
+  }
+  #content-title {
+    font-size: 20px;
+    line-height: 20px;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    top: 5vh;
+  }
+  .md-card-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+    top: 4vh;
+    width: 80vw;
+  }
+  .md-field {
+    margin-bottom: 2px;
+  }
 }
 </style>

@@ -214,7 +214,6 @@ export default {
 #container {
   border: solid 1px rgba($color: gray, $alpha: 0.4);
   border-radius: 5px;
-
   width: 50vw;
   position: relative;
   top: 3vh;
@@ -235,6 +234,35 @@ export default {
   margin-left: 15vw;
 }
 .md-field {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
+}
+@media (min-width: 320px) and (max-width: 360px) {
+  #container {
+    border: solid 1px rgba($color: gray, $alpha: 0.4);
+    border-radius: 5px;
+    width: 80vw;
+    position: relative;
+    top: 3vh;
+    left: 5vw;
+  }
+  #container-header {
+    font-size: 20px;
+    text-align: left;
+    margin-top: 5vh;
+    margin-left: 5vw;
+  }
+  #form-container {
+    margin-top: 1vh;
+    margin-left: 5vw;
+    width: 70vw;
+  }
+  .md-button {
+    margin-left: 15vw;
+    margin-top: 5vh;
+    margin-bottom: 2vh;
+  }
+  .md-field {
+    margin-bottom: 5px;
+  }
 }
 </style>

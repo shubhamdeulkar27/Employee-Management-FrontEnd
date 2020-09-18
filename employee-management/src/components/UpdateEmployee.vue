@@ -110,4 +110,44 @@ export default {
 .md-dialog-actions {
   padding: 0px 18px 8px 17px;
 }
+@media (min-width: 320px) and (max-width: 360px) {
+  #form-container {
+    position: relative;
+    top: 5vh;
+    width: 100vw;
+  }
+  .md-dialog {
+    height: 100vh;
+    min-width: 550px;
+  }
+  .md-field {
+    margin-bottom: 10px;
+  }
+  .md-dialog-actions {
+    padding: 0px 18px 8px 17px;
+    position: relative;
+    top: 12vh;
+    width: 100vw;
+  }
+}
+@media (min-width: 570px) and (max-width: 640px) {
+  #form-container {
+    position: relative;
+    top: 5vh;
+    width: 100vw;
+  }
+  .md-dialog {
+    height: 100vh;
+    min-width: 550px;
+  }
+  .md-field {
+    margin-bottom: 0px;
+  }
+  .md-dialog-actions {
+    padding: 0px 18px 8px 17px;
+    position: relative;
+    top: 12vh;
+    width: 100vw;
+  }
+}
 </style>

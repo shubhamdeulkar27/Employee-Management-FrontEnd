@@ -29,49 +29,6 @@
         @closeUpdate="closeUpdate()"
       />
     </md-dialog>
-    <!-- <div>
-      <md-dialog :md-active.sync="showDialog">
-        <md-dialog-title>Edit Employee Details</md-dialog-title>
-        <md-content>
-          <div id="form-container">
-            <form>
-              <md-field md-clearable>
-                <label>Firstname</label>
-                <md-input v-model="form.FirstName"></md-input>
-              </md-field>
-              <md-field md-clearable>
-                <label>Lastname</label>
-                <md-input v-model="form.LastName"></md-input>
-              </md-field>
-              <md-field md-clearable>
-                <label>Email</label>
-                <md-input v-model="form.EmailId"></md-input>
-              </md-field>
-              <md-field md-clearable>
-                <label>Mobile</label>
-                <md-input v-model="form.Mobile"></md-input>
-              </md-field>
-              <md-field md-clearable>
-                <label>Address</label>
-                <md-input v-model="form.Address"></md-input>
-              </md-field>
-              <md-field md-clearable>
-                <label>Birthdate</label>
-                <md-input v-model="form.BirthDate"></md-input>
-              </md-field>
-              <md-field md-clearable>
-                <label>Employment</label>
-                <md-input v-model="form.Employment"></md-input>
-              </md-field>
-            </form>
-          </div>
-        </md-content>
-        <md-dialog-actions>
-          <md-button class="md-primary" @click="showDialog = false">Close</md-button>
-          <md-button type="submit" class="md-raised md-primary" @click="updateEmployee()">Save</md-button>
-        </md-dialog-actions>
-      </md-dialog>
-    </div>-->
   </div>
 </template>
 <script>
@@ -117,7 +74,6 @@ export default {
     callUpdate(employee) {
       this.employee = employee;
       this.showDialog = true;
-      console.log("Update Called");
     },
     closeUpdate() {
       this.showDialog = false;
@@ -213,5 +169,106 @@ export default {
 }
 .md-overlay {
   background: rgba(0, 0, 0, 0.3);
+}
+@media (min-width: 320px) and (max-width: 360px) {
+  #list-container {
+    position: relative;
+    padding: 1vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 1vw;
+    row-gap: 5vh;
+  }
+  #empty-list {
+    position: relative;
+    top: 35vh;
+    font-size: 30px;
+    line-height: 25px;
+    width: 90vw;
+  }
+  .employee-data {
+    text-align: left;
+  }
+  #form-container {
+    padding-right: 2vw;
+    padding-left: 2vw;
+  }
+  .md-dialog {
+    height: 100vh;
+    min-width: 550px;
+  }
+  .md-field {
+    margin-bottom: 10px;
+  }
+  .md-dialog-actions {
+    padding: 0px 18px 8px 17px;
+  }
+  .md-card-actions {
+    position: relative;
+    bottom: 1vh;
+  }
+  .md-overlay {
+    background: rgba(0, 0, 0, 0.3);
+  }
+  .md-card {
+    width: 80vw;
+  }
+  .md-dialog-title {
+    font-size: 25px;
+    position: relative;
+    left: 10vw;
+    top: 5vh;
+  }
+}
+
+@media (min-width: 570px) and (max-width: 640px) {
+  #list-container {
+    position: relative;
+    padding: 1vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 1vw;
+    row-gap: 5vh;
+  }
+  #empty-list {
+    position: relative;
+    top: 28vh;
+    font-size: 30px;
+  }
+  .employee-data {
+    text-align: left;
+  }
+  #form-container {
+    padding-right: 2vw;
+    padding-left: 2vw;
+  }
+  .md-dialog {
+    height: 100vh;
+    min-width: 550px;
+  }
+  .md-field {
+    margin-bottom: 10px;
+  }
+  .md-dialog-actions {
+    padding: 0px 18px 8px 17px;
+  }
+  .md-card-actions {
+    position: relative;
+    bottom: 1vh;
+  }
+  .md-overlay {
+    background: rgba(0, 0, 0, 0.3);
+  }
+  .md-card {
+    width: 60vw;
+    position: relative;
+    left: 15vw;
+  }
+  .md-dialog-title {
+    font-size: 25px;
+    position: relative;
+    left: 10vw;
+    top: 5vh;
+  }
 }
 </style>
